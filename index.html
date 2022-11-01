@@ -1,32 +1,65 @@
 <html>
 
 <head>
-  <title>Javascript Login Form Validation</title>
+  <title>Acceso Artemisa</title>
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://raw.githubusercontent.com/Archerd6/Aplicacion-robots-asistenciales-Web/main/Documentos%20del%20proyecto/Logo.png" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/Archerd6/Aplicacion-robots-asistenciales-Web/main/Documentos%20del%20proyecto/Logo.png" />
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-  <!-- -->
+  <style>
+    h1 {
+      font-family: Copperplate, Papyrus, fantasy;
+    }
+/* 
+    body {
+      background-image: url("gradient_bg.png");
+      background-repeat: repeat-x;
+    } */
+
+    div.acceso {
+      border: 2px solid rgb(33, 103, 144);
+      border-radius: 5px;
+      padding: 5px;
+      margin-right: 300px;
+      margin-left: 300px;
+      background-color: rgb(255, 255, 255);
+    }
+
+    .addMore {
+      border: none;
+      background-color: rgb(255, 255, 255);
+      transition: all ease-in-out 0.1s;
+      cursor: pointer;
+    }
+
+    .addMore:hover {
+      background-color: #ddd;
+    }
+  </style>
 
   <script>
-    var attempt = 3; // Variable to count number of attempts.
-    // Below function Executes on click of login button.
+    var attempt = 3; // Variable para contar el número de intentos
+
+    // Esta función se ejecuta al hacer clic en el botón de inicio de sesión
     function validate() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
       if (username == "encargado" && password == "encargado") {
-        alert("Login successfully");
-        window.location = "Interfaz.html"; // Redirecting to other page.
+        alert("Login correcto");
+        window.location = "Interfaz.html"; // Redirección a la vista de encargado
         return false;
       }
       if (username == "tecnico" && password == "tecnico") {
-        alert("Login successfully");
-        window.location = "Interfaz.html"; // Redirecting to other page.
+        alert("Login correcto");
+        window.location = "Interfaz.html"; // Redirección a la vista de tecnico
         return false;
       }
       else {
-        attempt--;// Decrementing by one.
-        alert("You have left " + attempt + " attempt;");
-        // Disabling fields after 3 attempts.
+        attempt--; // Decrementamos la variable del número de intentos
+        alert("Intentos restantes: " + attempt);
+        // Deshabilitamos los campos cuando no quedan más intentos
         if (attempt == 0) {
           document.getElementById("username").disabled = true;
           document.getElementById("password").disabled = true;
@@ -40,28 +73,31 @@
 </head>
 
 <body>
+
   <center>
-    <h1> Aplicacion para el control de robots asistenciales</h1> <br>
+    <h1> Aplicacion para el control de robots asistenciales </h1>
 
-    <img src="https://raw.githubusercontent.com/Archerd6/Aplicacion-robots-asistenciales-Web/main/Documentos%20del%20proyecto/Logo.png"
-    width="20%">
+    <img
+      src="https://raw.githubusercontent.com/Archerd6/Aplicacion-robots-asistenciales-Web/main/Documentos%20del%20proyecto/Logo.png"
+      width="20%"> <br> <br>
 
+    <div class="acceso">
+      <h3> Acceso <button class="addMore" title="Acceso para los usuarios que van a usar el sistema">&#9432;</button>
+      </h3> <br>
 
-    <h2> Login </h2> <br>
+      <form method="post">
+        Usuario: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Usuario  -->
+        <input type="text" name="username" id="username" maxlength="35" size="45"> <br> <br>
 
-    <form method="post">
+        Contraseña: &nbsp;
+        <!-- Contraseña -->
+        <input type="password" name="password" id="password" maxlength="35" size="45"> <br> <br>
 
-      Usuario: &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="text" name="username" id="username" maxlength="40" size="45"> <br> <br>
-
-      Contraseña:
-      <input type="password" name="password" id="password" maxlength="40" size="45"> <br> <br>
-
-      <input type="button" value="Entrar" id="submit" onclick="validate()" />
-    </form>
-
-    <br>
-
+        <!-- Boton Entrar -->
+        <input type="button" value="Entrar" id="submit" onclick="validate()" />
+      </form>
+    </div>
   </center>
 </body>
 
