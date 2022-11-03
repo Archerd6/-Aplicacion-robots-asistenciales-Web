@@ -28,10 +28,10 @@
   a:active {
     text-decoration: underline;
   }
-  
+
   body {
-      background-color: #a1d8fb;
-    }
+    background-color: #a1d8fb;
+  }
 
   h1.Copper {
     font-family: Copperplate, Papyrus, fantasy;
@@ -131,6 +131,10 @@
   .button4:hover {
     background-color: #ff4646
   }
+
+  ul {
+    list-style-type: none;
+  }
 </style>
 
 <script>
@@ -161,6 +165,29 @@
     }
   };
 
+  function anadirH() {
+    var nuevaTarea = document.createElement('li');
+    var newTarea = prompt("Nº de la tarea a añadir");
+    nuevaTarea.appendChild(document.createTextNode('Tarea ' + newTarea + ' ' + '-'.repeat(53)));
+    document.querySelector('ul').appendChild(nuevaTarea);
+  };
+
+  function eliminarH() {
+    const list = document.getElementById("myList");
+    list.removeChild(list.lastChild);
+  };
+
+  function onLoadFunctions() {
+    for (let i = 1; i < 13; i++) {
+      var nuevaTarea = document.createElement('li');
+      var newTarea = i
+      nuevaTarea.appendChild(document.createTextNode('Tarea ' + newTarea + ' ' + '-'.repeat(53)));
+      document.querySelector('ul').appendChild(nuevaTarea);
+    }
+
+  }
+  window.onload = onLoadFunctions;
+
 </script>
 
 <body>
@@ -173,36 +200,17 @@
 
     <h1 class="Copper">Tareas</h1>
     <center>
-      &nbsp; &nbsp; &nbsp; Tarea 1 ------------------------------------------------------<br>
 
-      &nbsp; &nbsp; &nbsp; Tarea 2 ------------------------------------------------------<br>
+      <ul id="myList">
+      </ul>
 
-      &nbsp; &nbsp; &nbsp; Tarea 3 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 4 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 5 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 6 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 7 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 8 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 9 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 10 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 11 ------------------------------------------------------<br>
-
-      &nbsp; &nbsp; &nbsp; Tarea 12 ------------------------------------------------------<br>
     </center>
   </div>
 
   <div class="inline-div-izquierda2">
     <br> <br> <br> <br> <br>
-    <button type="button" class="button3" onClick="anadir()">+</button>
-    <button type="button" class="button4" onClick="eliminar()">-</button> <br>
+    <button type="button" class="button3" onClick="anadir(); anadirH()">+</button>
+    <button type="button" class="button4" onClick="eliminar(); eliminarH()">-</button> <br>
     Tareas:
     <a id="clicks">12</a> <br>
   </div>
@@ -217,8 +225,8 @@
 
       &nbsp; &nbsp; &nbsp; Robot 3 ------------------------------------------------------<br>
 
-      &nbsp; &nbsp; &nbsp; Robot 4 ------------------------------------------------------<br>
-      <br> <br> <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br>
+      &nbsp; &nbsp; &nbsp; Robot 4 ------------------------------------------------------ <br>
+
     </div>
 
     <br>
@@ -226,16 +234,12 @@
 
   </center>
 
-  <div class="inline-div-izquierda2">
-    <br> <br> <br>
-    <button type="button" class="button3" onClick="anadirR()">+</button>
-    <button type="button" class="button4" onClick="eliminarR()">-</button> <br>
-    Robots:
-    <a id="robots">4</a> <br>
-  </div>
 
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <button id="boton2" class="button2" onclick="window.location.href='Interfaz_tecnico.html';">Reset</button>
+  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+  <center>
+    <button id="boton2" class="button2" onclick="window.location.href='Interfaz_tecnico.html';">Reset</button>
+  </center>
+
 
 </body>
 
